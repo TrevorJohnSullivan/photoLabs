@@ -1,10 +1,8 @@
 import React from 'react';
 import TopicList from './TopicList';
-// import FavIcon from './FavIcon';
 import FavBadge from './FavBadge';
 import '../styles/TopNavigationBar.scss'
 
-// const selected = true
 
 const TopNavigation = () => {
   return (
