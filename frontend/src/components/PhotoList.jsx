@@ -3,24 +3,26 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 
-
-
 const PhotoList = (props) => {
 
-  const {photos} = props
+  const { photos, handlingFavorites, favorites } = props
 
-  const items = photos.map( item => {
+  const items = photos.map(item => {
     return (
       <PhotoListItem
-      key={item.id}
-      imageSource = {item.urls.regular}
-      profile = {item.user.profile}
-      name = {item.user.name}
-      city = {item.location.city}
-      country = {item.location.city}
+        key={item.id}
+        imageSource={item.urls.regular}
+        profile={item.user.profile}
+        name={item.user.name}
+        city={item.location.city}
+        country={item.location.country}
+        favorites={favorites} 
+        handlingFavorites={handlingFavorites}
+        photoId={item.id}
       />
-    )
-    });
+    );
+  });
+
 
   return (
     <ul className="photo-list">
@@ -28,5 +30,6 @@ const PhotoList = (props) => {
     </ul>
   );
 };
+
 
 export default PhotoList;

@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
-  const [isSelected, setIsSelected] = useState(false);
+function PhotoFavButton(props) {
 
-  const handleClick = () => {
-    setIsSelected(!isSelected);
-  };
+  const {favorites, handlingFavorites, photoId} = props
 
-  return (
-    <div className="photo-list__fav-icon" onClick={handleClick}>
-      <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isSelected} />
+  const [selected, setSelected] = useState(favorites.includes(photoId))
+  const showSelected = () => {
+   setSelected(!selected);
+
+   handlingFavorites(photoId)
+  }
+
+    return (
+      <div onClick={showSelected} className="photo-list__fav-icon">
+        <div className="photo-list__fav-icon-svg">
+          <FavIcon selected={selected} />
+        </div>
       </div>
-    </div>
-  );
+      
+    );
 }
 
 export default PhotoFavButton;

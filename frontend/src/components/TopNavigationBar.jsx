@@ -6,13 +6,14 @@ import '../styles/TopNavigationBar.scss'
 
 const TopNavigation = (props) => {
 
-const { topics } = props
+  const { topics, favorites } = props
+
 
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics} />
-      <FavBadge />
+      <TopicList topics={topics}/>
+      <FavBadge isFavPhotoExist={favorites.length > 0 ? true : false}/>
     </div>
   )
 }
