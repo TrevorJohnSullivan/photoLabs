@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoList from './PhotoList'; // Import PhotoList component
+import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({ photo, similarPhotos, closeModal }) => {
   if (!photo) return null;
