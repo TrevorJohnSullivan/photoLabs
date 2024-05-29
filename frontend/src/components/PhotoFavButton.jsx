@@ -3,24 +3,22 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
+  const { favorites, handlingFavorites, photoId } = props;
+  const [selected, setSelected] = useState(favorites.includes(photoId));
 
-  const {favorites, handlingFavorites, photoId} = props
+  const showSelected = (e) => {
+    e.stopPropagation(); // Prevent the modal from opening
+    setSelected(!selected);
+    handlingFavorites(photoId);
+  };
 
-  const [selected, setSelected] = useState(favorites.includes(photoId))
-  const showSelected = () => {
-   setSelected(!selected);
-
-   handlingFavorites(photoId)
-  }
-
-    return (
-      <div onClick={showSelected} className="photo-list__fav-icon">
-        <div className="photo-list__fav-icon-svg">
-          <FavIcon selected={selected} />
-        </div>
+  return (
+    <div onClick={showSelected} className="photo-list__fav-icon">
+      <div className="photo-list__fav-icon-svg">
+        <FavIcon selected={selected} />
       </div>
-      
-    );
+    </div>
+  );
 }
 
 export default PhotoFavButton;
