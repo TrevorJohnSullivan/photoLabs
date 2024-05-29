@@ -1,9 +1,10 @@
 import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from './PhotoList'; // Import PhotoList component
 
-const PhotoDetailsModal = ({ photo, closeModal }) => {
-  console.log(photo); 
+const PhotoDetailsModal = ({ photo, similarPhotos, closeModal }) => {
+  if (!photo) return null;
 
   const handleCloseModal = () => {
     closeModal();
@@ -16,7 +17,11 @@ const PhotoDetailsModal = ({ photo, closeModal }) => {
           <img src={closeSymbol} alt="close symbol" />
         </button>
       </div>
-      {/* Add photo details here */}
+      <img className="photo-details-modal__selected-photo" src={photo.urls.regular} alt={photo.alt_description} />
+      <div className="photo-details-modal__similar-photos">
+        <h3>Similar Photos</h3>
+        <PhotoList photos={similarPhotos} />
+      </div>
     </div>
   );
 };
