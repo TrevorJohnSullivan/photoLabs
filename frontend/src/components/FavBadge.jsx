@@ -5,11 +5,11 @@ import '../styles/FavBadge.scss';
 
 const FavBadge = ({ isFavPhotoExist }) => {
 
-  const like = true;
+  const selected = true;
 
   return (
     <div className='fav-badge'>
-      <FavIcon like={like} displayAlert={!!isFavPhotoExist}/>
+      <FavIcon selected={selected} displayAlert={!!isFavPhotoExist}/>
     </div>
   ) 
 };
