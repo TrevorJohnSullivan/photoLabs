@@ -3,7 +3,6 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ photo, closeModal }) => {
-  if (!photo) return null;
 
   const handleCloseModal = () => {
     closeModal();
