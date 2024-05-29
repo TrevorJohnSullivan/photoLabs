@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal'; // Updated import path
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
@@ -22,9 +22,10 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} openModal={openModal} />
-      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} />} {/* Pass closeModal */}
+      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} />}
     </div>
   );
 };
 
 export default App;
+
