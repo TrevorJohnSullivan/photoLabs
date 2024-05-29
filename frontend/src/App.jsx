@@ -14,10 +14,15 @@ const App = () => {
     setIsModalOpen(true);
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedPhoto(null);
+  };
+
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} openModal={openModal} />
-      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} />}
+      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} />} {/* Pass closeModal */}
     </div>
   );
 };
