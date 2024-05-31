@@ -4,16 +4,7 @@ import PhotoList from 'components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const { photos, topics, openModal } = props;
-  const [favorites, setFavorites] = useState([]);
-
-  const handlingFavorites = (photoId) => {
-    if (favorites.includes(photoId)) {
-      setFavorites(favorites.filter(id => id !== photoId));
-    } else {
-      setFavorites([...favorites, photoId]);
-    }
-  };
+  const { photos, topics, openModal, handlingFavorites, favorites } = props;
 
   return (
     <div className="home-route">

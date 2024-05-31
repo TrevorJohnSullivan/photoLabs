@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import PhotoDetailsModal from 'routes/PhotoDetailsModal'; // Updated import path
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
@@ -19,10 +19,23 @@ const App = () => {
     setSelectedPhoto(null);
   };
 
+
+  const [favorites, setFavorites] = useState([]);
+
+  const handlingFavorites = (photoId) => {
+    if (favorites.includes(photoId)) {
+      setFavorites(favorites.filter(id => id !== photoId));
+    } else {
+      setFavorites([...favorites, photoId]);
+    }
+  };
+
+
+
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} openModal={openModal} />
-      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} />}
+      <HomeRoute photos={photos} topics={topics} openModal={openModal} handlingFavorites={handlingFavorites} favorites={favorites} />
+      {isModalOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} handlingFavorites={handlingFavorites} favorites={favorites} />}
     </div>
   );
 };
