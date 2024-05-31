@@ -31,7 +31,7 @@ const simArr = [photo2, photo3, photo4, photo5]
         <img className="photo-details-modal__image" src={urls.full} />
         <div className="photo-details-modal__photographer-details">
           <img className="photo-details-modal__photographer-profile" src={user.profile} />
-          <div className="photo-details-modal__photographer-info"> {user.name}
+          <div className="photo-details-modal__photographer-info"> {user.username}
             <p className="photo-details-modal__photographer-location"> {location.city}, {location.country} </p></div>
         </div>
         <h2 className="photo-details-modal__header">Similar Photos</h2>

@@ -12,7 +12,7 @@ const PhotoList = (props) => {
         photo={item}
         imageSource={item.urls.regular}
         profile={item.user.profile}
-        name={item.user.name}
+        name={item.user.username}
         city={item.location.city}
         country={item.location.country}
         favorites={favorites}

@@ -7,7 +7,7 @@ function PhotoFavButton(props) {
   const [selected, setSelected] = useState(favorites.includes(photoId));
 
   const showSelected = (e) => {
-    e.stopPropagation(); // Prevent the modal from opening
+    e.stopPropagation(); 
     setSelected(!selected);
     handlingFavorites(photoId);
   };

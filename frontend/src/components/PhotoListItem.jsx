@@ -6,7 +6,7 @@ const PhotoListItem = (props) => {
   const { photo, imageSource, profile, name, city, country, handlingFavorites, favorites, openModal } = props;
 
   const handleClick = (e) => {
-    e.stopPropagation(); // Prevent the modal from opening when clicking the favorite button
+    e.stopPropagation();
     openModal(photo);
   };
 
