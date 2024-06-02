@@ -1,46 +1,60 @@
-import { useState} from "react"
+import { useReducer } from "react";
 
+// Define the initial state
+const initialState = {
+  isModalOpen: false,
+  selectedPhoto: null,
+  favorites: []
+};
+
+// Define the reducer function
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'OPEN_MODAL':
+      return {
+        ...state,
+        isModalOpen: true,
+        selectedPhoto: action.payload
+      };
+    case 'CLOSE_MODAL':
+      return {
+        ...state,
+        isModalOpen: false,
+        selectedPhoto: null
+      };
+    case 'TOGGLE_FAVORITE':
+      return {
+        ...state,
+        favorites: state.favorites.includes(action.payload)
+          ? state.favorites.filter(id => id !== action.payload)
+          : [...state.favorites, action.payload]
+      };
+    default:
+      return state;
+  }
+};
 
 function useApplicationData() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const openModal = (photo) => {
-    setSelectedPhoto(photo);
-    setIsModalOpen(true);
+    dispatch({ type: 'OPEN_MODAL', payload: photo });
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedPhoto(null);
+    dispatch({ type: 'CLOSE_MODAL' });
   };
-
-
-  const [favorites, setFavorites] = useState([]);
 
   const handlingFavorites = (photoId) => {
-    if (favorites.includes(photoId)) {
-      setFavorites(favorites.filter(id => id !== photoId));
-    } else {
-      setFavorites([...favorites, photoId]);
-    }
+    dispatch({ type: 'TOGGLE_FAVORITE', payload: photoId });
   };
-
-
-  const state = {
-    isModalOpen,
-    selectedPhoto,
-    favorites
-  }
-
 
   return {
     state,
     openModal,
     closeModal,
     handlingFavorites,
-  }
+  };
 }
-
 
 export default useApplicationData;
