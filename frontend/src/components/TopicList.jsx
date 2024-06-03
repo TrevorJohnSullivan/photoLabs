@@ -1,10 +1,6 @@
 import React from "react";
-
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-
-
-
 
 const TopicList = (props) => {
 

@@ -10,11 +10,9 @@ const { photo, closeModal, handlingFavorites, favorites } = props
 
 const {id, location, urls, user, similar_photos} = photo
 
-
   const handleCloseModal = () => {
     closeModal();
   };
-
   return (
     <div className="photo-details-modal">
       <div className="photo-details-modal__top-bar">

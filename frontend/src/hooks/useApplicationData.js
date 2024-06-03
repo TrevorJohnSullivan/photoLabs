@@ -9,7 +9,6 @@ export const ACTIONS = {
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 }
 
-
 const {OPEN_MODAL, CLOSE_MODAL, TOGGLE_FAVORITE, SET_PHOTO_DATA, SET_TOPIC_DATA, GET_PHOTOS_BY_TOPICS} = ACTIONS
 
 
@@ -19,7 +18,6 @@ function useApplicationData() {
   const handleID = (topicID) => {
     setId(topicID)
   }
-
 
   useEffect(() => {
     fetch("/api/photos")
@@ -39,8 +37,6 @@ function useApplicationData() {
       .then((data) => dispatch({ type: GET_PHOTOS_BY_TOPICS, payload: data }))
   }, [id]);
   
-  
-  // Define the initial state
   const initialState = {
     isModalOpen: false,
     selectedPhoto: null,
@@ -50,7 +46,6 @@ function useApplicationData() {
     topicPhotos: []
   };
   
-  // Define the reducer function
   const reducer = (state, action) => {
     switch (action.type) {
       case SET_PHOTO_DATA:
@@ -83,7 +78,6 @@ function useApplicationData() {
     }
   };
 
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const openModal = (photo) => {
@@ -97,7 +91,6 @@ function useApplicationData() {
   const handlingFavorites = (photoId) => {
     dispatch({ type: TOGGLE_FAVORITE, payload: photoId });
   };
-
 
   return {
     state,

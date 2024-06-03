@@ -5,7 +5,6 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
   const { photos, topics, openModal, handlingFavorites, favorites, handleID, topicPhotos} = props;
-
   return (
     <div className="home-route">
       <TopNavigation topics={topics} favorites={favorites} handleID={handleID} />
