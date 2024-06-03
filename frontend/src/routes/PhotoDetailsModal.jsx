@@ -10,10 +10,6 @@ const { photo, closeModal, handlingFavorites, favorites } = props
 
 const {id, location, urls, user, similar_photos} = photo
 
-const {photo2, photo3, photo4, photo5} = similar_photos
-
-const simArr = [photo2, photo3, photo4, photo5]
-
 
   const handleCloseModal = () => {
     closeModal();
@@ -36,7 +32,7 @@ const simArr = [photo2, photo3, photo4, photo5]
         </div>
         <h2 className="photo-details-modal__header">Similar Photos</h2>
         <div className="">
-          <PhotoList photos={simArr} favorites={favorites} handlingFavorites={handlingFavorites} />
+          <PhotoList photos={similar_photos} favorites={favorites} handlingFavorites={handlingFavorites} />
         </div>
       </article>
     </div>
