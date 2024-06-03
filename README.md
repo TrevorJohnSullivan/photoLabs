@@ -22,3 +22,17 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Screenshots
+
+<b>Main Screen</b>
+
+!["Main Screen"](https://github.com/TrevorJohnSullivan/photoLabs/blob/main/docs/mainscreenshot.png)
+
+<b>Modal Open</b>
+
+!["Modal Open"](https://github.com/TrevorJohnSullivan/photoLabs/blob/main/docs/modalscreenshot.png)
+
+<b>Similar Photos</b>
+
+!["Similar Photos"](https://github.com/TrevorJohnSullivan/photoLabs/blob/main/docs/similarphotosscreenshot.png)
